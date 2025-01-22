@@ -1,11 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <title>Web Lo Nha Lam</title>
-  </head>
-  <body></body>
-  <script src="./Javascript/index.js"></script>
+
+<head>
+  <title>Vòng Quay May Mắn - Tạo Vòng xoay may mắn online miễn phí tự chọn</title>
+  <meta name="description" content="Vòng quay may mắn là công cụ tiện ích miễn phí cho người dùng. Tạo vòng xoay may mắn giúp bạn lựa chọn ngẫu nhiên đã có trên danh sách.">
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <link rel="canonical" href="https://vongquaymayman.blog/">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vòng Quay May Mắn - Tạo Vòng xoay may mắn online miễn phí tự chọn">
+  <meta property="og:description" content="Vòng quay may mắn là công cụ tiện ích miễn phí cho người dùng. Tạo vòng xoay may mắn giúp bạn lựa chọn ngẫu nhiên đã có trên danh sách.">
+  <meta property="og:url" content="https://vongquaymayman.blog/">
+  <meta property="og:site_name" content="Vòng Quay May Mắn">
+  <meta property="og:image" content="https://vongquaymayman.blog/src/css/images/img-header.png">
+  <meta property="og:image:secure_url" content="https://vongquaymayman.blog/src/css/images/img-header.png">
+  <meta name="twitter:title" content="Vòng Quay May Mắn - Tạo Vòng xoay may mắn online miễn phí tự chọn">
+  <meta name="twitter:description" content="Vòng quay may mắn là công cụ tiện ích miễn phí cho người dùng. Tạo vòng xoay may mắn giúp bạn lựa chọn ngẫu nhiên đã có trên danh sách.">
+  <meta name="twitter:image" content="https://vongquaymayman.blog/src/css/images/img-header.png">
+
+  <meta itemprop="name" content="Vòng Quay May Mắn">
+  <meta itemprop="description" content="Vòng quay may mắn là công cụ tiện ích miễn phí cho người dùng. Tạo vòng xoay may mắn giúp bạn lựa chọn ngẫu nhiên đã có trên danh sách.">
+  <meta itemprop="image" content="https://vongquaymayman.blog/src/css/images/img-header.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/css/styles.css" />
+  <link rel="stylesheet" href="src/css/queries.css" />
+  <link rel="shortcut icon" href="./src/css/images/img-favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caprasimo&family=Paytone+One&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/57768b1085.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="background-header">
+      <div class="img-header header-name">
+        <img src="./src/css/images/img-header.png" />
+        <div class="loader">
+        </div>
+        <h1><a href="./index.html">VÒNG QUAY MAY MẮN</a></h1>
+        <div class="contact">
+          <ul class="menu ">
+            <li>
+              <a class="bar" href="./Contact/contactus.html">Contact Us <span><i class="fa-solid fa-caret-down down-icon"></i></span></a>
+              <a class="bar-two"><i class="fa-solid fa-bars mobile-navigation"></i></a>
+              <ul class="drop-down">
+                <li><a href="./Contact/aboutus.html">Về Chúng Tôi</a></li>
+                <li><a href="./Contact/howitworks.html">Cách Hoạt Động</a></li>
+                <li><a href="./Contact/privacy.html">Privacy Policy</a></li>
+                <li><a href="./Contact/temsofuse.html">Terms Of Use</a></li>
+                <li><a href="./Contact/dmca.html">DMCA</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="main">
+    <div class="wrapper" id="wrapper">
+      <div class="wheel-container wheel-container-table">
+        <canvas id="wheel" width="700" height="700"></canvas>
+        <div id="spin">Quay</div>
+        <div class="clean-block">
+          <label class="switch">
+            <input type="checkbox" id="cleanButton" onclick="setFullScreen()" />
+            <span class="slider round"></span>
+          </label>
+          <span class="btn">
+            <span class="clean" onclick="setFullScreen()">Gọn gàng</span>
+          </span>
+        </div>
+      </div>
+      <audio controls="controls" id="spin-audio" src="src/css/Am-thanh-vong-quay-chiec-non-ky-dieu.mp3"
+        type="audio/mpeg"></audio>
+      <audio controls="controls" id="congratulation"
+        src="src/css/congratulation.mp3"
+        type="audio/mpeg"></audio>
+    </div>
+    <div class="clearfix"></div>
+    <div class="menu-container">
+      <div class="menu-box">
+        <div class="tabs">
+          <div class="tab-item active">
+            <i class="fas fa-tasks tab-icon"></i>
+            mục
+          </div>
+          <div class="tab-item">
+            <i class="fas fa-tasks tab-icon"></i>
+            kết quả
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <ul class="menu-tab">
+              <li>
+                <button class="delete-btn"><i class="fas fa-times"></i> Xoá</button>
+              </li>
+              <li>
+                <button class="shuffle-btn"><i class="fas fa-random loadData"></i> Trộn</button>
+              </li>
+              <li><button class="ascending">⇣ AZ</button></li>
+              <li><button class="decreasing">⇣ ZA</button></li>
+              <li>
+                <button id="addImageButton">
+                  <i class="fas fa-camera"></i> Thêm ảnh
+                </button>
+                <input type="file" id="imageInput" style="display: none;">
+              </li>
+            </ul>
+            <div class="result-area"></div>
+            <div class="save">
+              <p class="show-input">Lưu thành chủ đề &bigtriangledown;</p>
+              <div class="save-hidden">
+                <input type="text" class="random-themes" /><span><button class="save-btn">Lưu lại</button></span>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane">
+            <ul class="menu-tab">
+              <li>
+                <button>
+                  <i class="fas fa-sort-amount-down"></i> Sắp xếp
+                </button>
+              </li>
+              <li><button class="del-prize">&CircleTimes; Xoá kết quả</button></li>
+            </ul>
+            <div class="show-prize"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal">
+      <div class="header-modal">
+        <p class="content-header"><i class="fa-solid fa-triangle-exclamation"></i> Bạn đã quay vào ô</p>
+        <button class="close-modal" type="button"><a href="#"><i class="fa-solid fa-x"></i></a></button>
+      </div>
+      <hr>
+      <div class="content-modal">
+        <i class="fa-regular fa-face-smile fa-2xl"></i>
+        <div class="result"></div>
+      </div>
+      <div class="button-modal">
+        <hr class="hr" style="margin-bottom: 6px; ">
+        <button class="del" type="button"><a href="#">Xóa ô này</a></button>
+        <button class="close" type="button"><a href="#">Đóng lại</a></button>
+      </div>
+    </div>
+  </section>
+  <section class="themes">
+    <div class="themes-container">
+      <p>Chủ đề: <span>Quay Thưởng </span></p>
+      <div class="themes-menu">
+        <div class="menu-box">
+          <div class="tabs">
+            <div class="theme-item small">
+              <i class="fas fa-tasks tab-icon"></i>
+              chủ đề của bạn
+            </div>
+            <div class="theme-item theme-active small">
+              <i class="fas fa-tasks tab-icon"></i>
+              chủ đề tạo sẵn
+            </div>
+            <div class="line"></div>
+          </div>
+          <div class="tab-content">
+            <div class="theme-pane">
+              <div id="Name_topic">
+                
+              </div>
+              <button class="creatNew-btn">Tạo mới</button>
+            </div>
+            <div class="theme-pane theme-active">
+              <ul class="menu-tab">
+                <li>
+                  <button class="theme-btn gray drink">Trên bàn nhậu</button>
+                  <button class="theme-btn green lunch">Trưa nay ăn gì</button>
+                  <button class="theme-btn sky girl">Rủ rê gái</button>
+                  <button class="theme-btn orange odd-even">Chẵn lẻ</button>
+                </li>
+                <li class="two">
+                  <button class="theme-btn blue money">Ai trả tiền</button>
+                  <button class="theme-btn green name">Tên bất kỳ</button>
+                  <button class="theme-btn gray lucky">Nhân phẩm</button>
+                  <button class="theme-btn sky game">Game</button>
+                </li>
+                <li>
+                  <button class="theme-btn red anime">Anime</button>
+                  <button class="theme-btn blue colors">Màu sắc</button>
+                  <button class="theme-btn gray oneToTen">Chữ số 1&RightArrow;10</button>
+                  <button class="theme-btn green football">Bóng đá</button>
+                </li>
+                <li>
+                  <button class="theme-btn orange prizes">Phần thưởng</button>
+                  <button class="theme-btn red fashion">Thời trang</button>
+                  <button class="theme-btn blue animal">Động vật</button>
+                  <button class="theme-btn gray creatNew">Tạo mới</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+  <footer id="footer">
+    <div class="wp-footer">
+      <p>&copy; 2023 Vòng Quay May Mắn</p>
+    </div>
+  </footer>
+  <script src="src/js/index.js"></script>
+  <script src="./src/js/confetti.js"></script>
+</body>
+
 </html>
